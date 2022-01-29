@@ -30,7 +30,6 @@ public class SignPage extends Activity implements View.OnClickListener{
         setContentView(R.layout.sign);//没有ContentView那所有的都是空对象
         InitWidget();
     }
-
     private void InitWidget() {
 
         user_logo = findViewById(R.id.sign_user_logo);
