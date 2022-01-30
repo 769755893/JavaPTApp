@@ -59,7 +59,7 @@ public class MyGamesLayout extends RelativeLayout implements View.OnClickListene
 
     public GamePintuListener mListener;
 
-    //设置接口回调
+    //设置接口回调函数
     public void setmListener(GamePintuListener mListener) {
         this.mListener = mListener;
     }
@@ -106,17 +106,17 @@ public class MyGamesLayout extends RelativeLayout implements View.OnClickListene
 
     public boolean isPause=true;
 
-//    public void pause() {
-//        isPause = true;
-//        mHandler.removeMessages(TIME_CHANGED);
-//    }
-//
-//    public void resume() {
-//        if (isPause) {
-//            isPause = false;
-//            mHandler.sendEmptyMessage(TIME_CHANGED);
-//        }
-//    }
+    public void pause() {
+        isPause = true;
+        mHandler.removeMessages(TIME_CHANGED);
+    }
+
+    public void resume() {
+        if (isPause) {
+            isPause = false;
+            mHandler.sendEmptyMessage(TIME_CHANGED);
+        }
+    }
 
     public void nextLevel() {
         this.removeAllViews();

@@ -1,13 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:id="@+id/forget_root"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         >
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/forget_logo"
+            />
 
-
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/forget_username"
+            android:layout_below="@+id/forget_logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户"
+            android:shadowRadius="3.0"
+            android:shadowColor="@color/red"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:textStyle="italic"
+            android:textSize="18sp"
+            android:layout_toLeftOf="@+id/forget_username"
+            android:layout_below="@+id/forget_logo"
+            android:layout_marginTop="24dp"
+            />
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/forget_mb"
+            android:layout_below="@+id/forget_username"
+            android:layout_centerHorizontal="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="密保"
+            android:shadowRadius="3.0"
+            android:shadowColor="@color/red"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:textStyle="italic"
+            android:textSize="18sp"
+            android:layout_toLeftOf="@+id/forget_mb"
+            android:layout_below="@+id/forget_username"
+            android:layout_marginTop="10dp"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查询"
+            android:id="@+id/search_btn"
+            android:layout_below="@+id/forget_mb"
+            android:layout_centerHorizontal="true"
+            />
     </RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/forget_container"
+        android:orientation="vertical"
+        >
+    </LinearLayout>
 </LinearLayout>

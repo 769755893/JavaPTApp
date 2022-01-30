@@ -9,24 +9,23 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ff44cef6"
->
+        android:background="#ff44cef6">
+
         <TextClock
-            android:layout_alignParentLeft="true"
             android:id="@+id/tv_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:layout_alignParentLeft="true"
             android:textColor="#ff000000"
-            />
+            android:textSize="15sp" />
+
         <ImageButton
+            android:id="@+id/gy_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/imagebtn_selector2"
-            android:cropToPadding="true"
-            android:id="@+id/gy_button"
             android:layout_alignParentRight="true"
-            />
+            android:background="@drawable/imagebtn_selector2"
+            android:cropToPadding="true" />
     </RelativeLayout>
 
     <LinearLayout
@@ -80,7 +79,16 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:background="#ffffff"
+                android:inputType="textVisiblePassword"
                 android:hint="请输入密码" />
+
+            <Button
+                android:id="@+id/eye_login_btn"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="300dp"
+                android:layout_marginTop="45dp"
+                android:background="@drawable/eye_invisble_selector" />
         </RelativeLayout>
 
 

@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             LayoutInflater inflater = LayoutInflater.from(this);
             View view = inflater.inflate(R.layout.startlayout, null);
             setContentView(view);
+
             button1 = (Button) findViewById(R.id.StartBtn);
             button1.setOnClickListener(new View.OnClickListener() {
                 @Override

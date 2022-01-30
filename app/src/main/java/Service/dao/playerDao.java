@@ -1,5 +1,6 @@
 package Service.dao;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -19,6 +20,7 @@ public class playerDao {
         );
         db.close();
     }
+    @SuppressLint("Range")
     public Player getuser(String username){
         SQLiteDatabase db = dbhelper.getWritableDatabase();
 //        String table =  Player.TABLE_NAME ;

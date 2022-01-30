@@ -2,6 +2,7 @@ package Service.dao;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.provider.ContactsContract;
 
 import androidx.annotation.NonNull;
 
@@ -13,6 +14,34 @@ public class Player implements Parcelable {
 
     public String user_name;
     public String user_pass;
+    public int y;
+    public int m;
+    public int d;
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public int getM() {
+        return m;
+    }
+
+    public void setM(int m) {
+        this.m = m;
+    }
+
+    public int getD() {
+        return d;
+    }
+
+    public void setD(int d) {
+        this.d = d;
+    }
+
 
     public static final Creator<Player> CREATOR = new Creator<Player>() {
         @Override

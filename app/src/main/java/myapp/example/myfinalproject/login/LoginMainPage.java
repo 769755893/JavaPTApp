@@ -11,12 +11,20 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Editable;
+import android.text.InputFilter;
+import android.text.InputType;
+import android.text.TextWatcher;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextClock;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,7 +40,7 @@ public class LoginMainPage extends Activity implements View.OnClickListener {
     TextClock textClock;
     ImageView logo,user_logo,pass_logo;
     ImageButton login_button,exit_button,about;
-    Button forget_btn,sign_btn;
+    Button forget_btn,sign_btn,login_eye_btn;
     ChangeBitmap changeBitmap = new ChangeBitmap();
     AutoCompleteTextView username, userpass;
     static final int SIGN_SUCCESS_BACK =0x000001;
@@ -54,9 +62,6 @@ public class LoginMainPage extends Activity implements View.OnClickListener {
         CharSequence s = "hh:mm:ss";
         //tvShowTime 是TextClock的实例对象
         textClock.setFormat24Hour(s);
-        s = "yyyy年MM月dd日 hh:mm:ss";
-        textClock.setFormat12Hour(s);
-
 
         about = findViewById(R.id.gy_button);
         about.setOnClickListener(this);
@@ -73,6 +78,30 @@ public class LoginMainPage extends Activity implements View.OnClickListener {
         sign_btn.setOnClickListener(this);
         username = findViewById(R.id.username);
         userpass = findViewById(R.id.userpass);
+        userpass.setMaxLines(1);
+        username.setMaxLines(1);
+        username.setInputType(InputType.TYPE_CLASS_NUMBER);
+        userpass.setInputType(InputType.TYPE_CLASS_NUMBER);
+        username.setFilters(new InputFilter[]{new InputFilter.LengthFilter(10)});
+        userpass.setFilters(new InputFilter[]{new InputFilter.LengthFilter(10)});
+
+        login_eye_btn = findViewById(R.id.eye_login_btn);
+        login_eye_btn.setOnClickListener(this);
+        login_eye_btn.setSelected(true);
+
+        userpass.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(login_eye_btn.isSelected()) {
+                    userpass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    userpass.setSelection(userpass.getText().length());
+                }
+            }
+        });
+
+
+
+
 
         Bitmap LOGO_Bitmap,USER_LOGO_BITMAP,PASS_LOGO_BITMAP,LOGIN_BUTTON_BITMAP,EXIT_BUTTON_BITMAP,
                 GY_BITMAP;
@@ -96,8 +125,6 @@ public class LoginMainPage extends Activity implements View.OnClickListener {
         login_button.setImageBitmap(LOGIN_BUTTON_BITMAP);
         exit_button.setImageBitmap(EXIT_BUTTON_BITMAP);
         about.setImageBitmap(GY_BITMAP);
-
-
     }
 
     @Override
@@ -125,6 +152,19 @@ public class LoginMainPage extends Activity implements View.OnClickListener {
                 bundle.putParcelable("person",player);
                 intent2.putExtras(bundle);
                 startActivity(intent2);
+                break;
+            case R.id.eye_login_btn:
+                if(login_eye_btn.isSelected()){
+                    userpass.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    login_eye_btn.setSelected(false);
+                    userpass.setSelection(userpass.getText().length());
+                }
+                else{
+                    login_eye_btn.setSelected(true);
+                    userpass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    userpass.setSelection(userpass.getText().length());
+                }
+                break;
         }
     }
 
