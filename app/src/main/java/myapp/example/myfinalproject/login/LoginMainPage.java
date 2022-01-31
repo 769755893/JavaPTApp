@@ -148,7 +148,7 @@ public class LoginMainPage extends Activity implements View.OnClickListener {
             case R.id.forget_pass_btn:
                 Intent intent2 = new Intent(this,forget_pass_page.class);
                 Bundle bundle = new Bundle();
-                Player player = new Player(String.valueOf(username.getText()),String.valueOf(userpass.getText()));
+                Player player = new Player(String.valueOf(username.getText()),String.valueOf(userpass.getText()),0,0,0);
                 bundle.putParcelable("person",player);
                 intent2.putExtras(bundle);
                 startActivity(intent2);

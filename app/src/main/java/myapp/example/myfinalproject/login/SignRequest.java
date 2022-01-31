@@ -6,7 +6,7 @@ import Service.dao.Player;
 import Service.dao.playerDao;
 
 public class SignRequest {
-    public int Request(Context context, String UserName, String UserPass){
+    public int Request(Context context, String UserName, String UserPass,int Year,int Month,int Day){
         playerDao pd = new playerDao(context);
 
         //用户存在？
@@ -15,7 +15,7 @@ public class SignRequest {
             return 1;
         }
         else{
-            pd.add(UserName,UserPass);
+            pd.add(UserName,UserPass,Year,Month,Day);
             return 0;//用户不存在
         }
     }

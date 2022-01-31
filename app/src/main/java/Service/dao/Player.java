@@ -11,37 +11,38 @@ public class Player implements Parcelable {
     public static final String KEY_ID = "Player_id";
     public static final String KEY_USER_NAME = "User_name";
     public static final String KEY_USER_PASS = "User_pass";
-
+    public static final String KEY_USER_YEAR = "year";
+    public static final String KEY_USER_MONTH = "month";
+    public static final String KEY_USER_DAY = "day";
     public String user_name;
     public String user_pass;
-    public int y;
-    public int m;
-    public int d;
+    public int year;
+    public int month;
+    public int day;
 
-    public int getY() {
-        return y;
+    public int getYear() {
+        return year;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setYear(int year) {
+        this.year = year;
     }
 
-    public int getM() {
-        return m;
+    public int getMonth() {
+        return month;
     }
 
-    public void setM(int m) {
-        this.m = m;
+    public void setMonth(int month) {
+        this.month = month;
     }
 
-    public int getD() {
-        return d;
+    public int getDay() {
+        return day;
     }
 
-    public void setD(int d) {
-        this.d = d;
+    public void setDay(int day) {
+        this.day = day;
     }
-
 
     public static final Creator<Player> CREATOR = new Creator<Player>() {
         @Override
@@ -58,9 +59,12 @@ public class Player implements Parcelable {
     public Player() {
     }
 
-    public Player(String username,String userpass){
+    public Player(String username,String userpass,int year,int month,int day){
         this.user_name = username;
         this.user_pass = userpass;
+        this.year = year;
+        this.month = month;
+        this.day = day;
     }
 
     public String getUser_name() {
@@ -88,10 +92,16 @@ public class Player implements Parcelable {
     public void writeToParcel(@NonNull Parcel parcel, int i) {
         parcel.writeString(user_name);
         parcel.writeString(user_pass);
+        parcel.writeInt(year);
+        parcel.writeInt(month);
+        parcel.writeInt(day);
     }
 
     public Player(@NonNull Parcel parcel){
         user_name = parcel.readString();
         user_pass = parcel.readString();
+        year = parcel.readInt();
+        month = parcel.readInt();
+        day = parcel.readInt();
     }
 }

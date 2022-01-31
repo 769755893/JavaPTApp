@@ -11,12 +11,13 @@ public class playerDao {
     public playerDao(Context context){
         dbhelper = new LoginDbHelper(context,"player.db",null,1);
     }
-    public void add(String username, String password){
+    public void add(String username, String password,int Year,int Month,int day){
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         db.execSQL(
                 "insert into " +
-                Player.TABLE_NAME+" ("+Player.KEY_USER_NAME+","+Player.KEY_USER_PASS+") " +
-                "values("+username+","+password+");"
+                Player.TABLE_NAME+" ("+Player.KEY_USER_NAME+","+Player.KEY_USER_PASS+","+Player.KEY_USER_YEAR+","+Player.KEY_USER_MONTH+
+                        ","+Player.KEY_USER_DAY+") " +
+                "values("+username+","+password+","+Year+","+Month+","+day+");"
         );
         db.close();
     }
@@ -31,9 +32,9 @@ public class playerDao {
 //        String having = "" ;
 //        String orderBy = "" ;
 //        Cursor cursor = db.query(table,columns,selection,selectionArgs,groupBy,having,orderBy);
-        Player player = new Player("","");
-        Cursor cursor = db.rawQuery("select "+Player.KEY_USER_NAME+","+Player.KEY_USER_PASS
-                        +" from "+Player.TABLE_NAME +" where "+Player.KEY_USER_NAME +"=?",new String[]{username}
+        Player player = new Player("","",0,0,0);
+        Cursor cursor = db.rawQuery("select * from "+Player.TABLE_NAME +" where "+Player.KEY_USER_NAME +"=?"
+                ,new String[]{username}
         );
 
         if(cursor.getCount()==0){
@@ -45,6 +46,9 @@ public class playerDao {
                 if(cursor.moveToFirst()){
                     player.setUser_name(cursor.getString(cursor.getColumnIndex(Player.KEY_USER_NAME)));
                     player.setUser_pass(cursor.getString(cursor.getColumnIndex(Player.KEY_USER_PASS)));
+                    player.setYear(cursor.getInt(cursor.getColumnIndex(Player.KEY_USER_YEAR)));
+                    player.setMonth(cursor.getInt(cursor.getColumnIndex(Player.KEY_USER_MONTH)));
+                    player.setDay(cursor.getInt(cursor.getColumnIndex(Player.KEY_USER_DAY)));
                     cursor.close();
                     db.close();
                     return player;

@@ -18,7 +18,10 @@ public class LoginDbHelper extends SQLiteOpenHelper {
         String CREATE_TABLE_PLAYER="CREATE TABLE "+ Player.TABLE_NAME+"("
                          +Player.KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT ,"
                          +Player.KEY_USER_NAME+" TEXT, "
-                         +Player.KEY_USER_PASS+" TEXT );";
+                         +Player.KEY_USER_PASS+" TEXT,"
+                         +Player.KEY_USER_YEAR+" INTEGER,"
+                         +Player.KEY_USER_MONTH+" INTEGER,"
+                         +Player.KEY_USER_DAY+" INTEGER);";
         db.execSQL(CREATE_TABLE_PLAYER);
     }
 

@@ -25,49 +25,67 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="用户"
-            android:shadowRadius="3.0"
+            android:layout_below="@+id/forget_logo"
+            android:layout_marginTop="22dp"
+            android:layout_marginRight="14dp"
+            android:layout_toLeftOf="@+id/forget_username"
             android:shadowColor="@color/red"
             android:shadowDx="3"
             android:shadowDy="3"
-            android:textStyle="italic"
+            android:shadowRadius="3.0"
+            android:text="用户"
             android:textSize="18sp"
-            android:layout_toLeftOf="@+id/forget_username"
-            android:layout_below="@+id/forget_logo"
-            android:layout_marginTop="24dp"
-            />
-        <EditText
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/forget_sr_tv"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:id="@+id/forget_mb"
             android:layout_below="@+id/forget_username"
             android:layout_centerHorizontal="true"
-            />
+            android:hint="输入您的生日密保"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="密保"
-            android:shadowRadius="3.0"
+            android:layout_below="@+id/forget_username"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="14dp"
+            android:layout_toLeftOf="@+id/forget_sr_tv"
             android:shadowColor="@color/red"
             android:shadowDx="3"
             android:shadowDy="3"
-            android:textStyle="italic"
+            android:shadowRadius="3.0"
+            android:text="生日"
             android:textSize="18sp"
-            android:layout_toLeftOf="@+id/forget_mb"
-            android:layout_below="@+id/forget_username"
-            android:layout_marginTop="10dp"
-            />
+            android:textStyle="italic" />
+
         <Button
+            android:id="@+id/forget_search_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="查询"
-            android:id="@+id/search_btn"
-            android:layout_below="@+id/forget_mb"
+            android:layout_below="@+id/forget_sr_tv"
             android:layout_centerHorizontal="true"
+            android:text="查询" />
+        <ImageButton
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/forget_imgesrbtn"
+            android:layout_toRightOf="@+id/forget_sr_tv"
+            android:layout_marginTop="255dp"
             />
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragment_container_forget"
+            android:layout_below="@+id/forget_sr_tv"
+            android:layout_centerHorizontal="true"/>
     </RelativeLayout>
     <LinearLayout
         android:layout_width="wrap_content"

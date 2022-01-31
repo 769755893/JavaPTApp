@@ -25,6 +25,7 @@ import Service.dao.Player;
 import myapp.example.myfinalproject.R;
 import util.ChangeBitmap;
 
+
 public class SignPage extends FragmentActivity implements View.OnClickListener{
     ImageButton zc_Btn,srmb_btn;
     EditText username,userpass;
@@ -43,11 +44,59 @@ public class SignPage extends FragmentActivity implements View.OnClickListener{
         InitFragmentCallback();
     }
 
+    protected class datedateclass{
+        private int I,I1,I2;
+
+        datedateclass(int i,int i1,int i2){
+            this.I=i;
+            this.I1=i1;
+            this.I2=i2;
+        }
+        public int getI() {
+            return I;
+        }
+
+        public void setI(int i) {
+            I = i;
+        }
+
+        public int getI1() {
+            return I1;
+        }
+
+        public void setI1(int i1) {
+            I1 = i1;
+        }
+
+        public int getI2() {
+            return I2;
+        }
+
+        public void setI2(int i2) {
+            I2 = i2;
+        }
+    }
+    public interface deliverdatedata{
+        datedateclass deliver();
+    }
+
+    deliverdatedata datedata;
+    public void delivercallfunction(deliverdatedata d){
+        this.datedata = d;
+    }
+
+
     private void InitFragmentCallback() {
         dateSelectFragment.FragmentCallbackInterface(new DateSelectFragment.FragmentInterface() {
             @Override
             public void sendData(int i, int i1, int i2) {
                 srmb_tv.setText(i+"年"+i1+"月"+i2+"日");
+                delivercallfunction(new deliverdatedata() {
+                    @Override
+                    public datedateclass deliver() {
+                        return new datedateclass(i,i1,i2);
+                    }
+                });
             }
 
             @Override
@@ -177,6 +226,8 @@ public class SignPage extends FragmentActivity implements View.OnClickListener{
         int flag=-1;
         UserName = String.valueOf(username.getText());
         UserPass = String.valueOf(userpass.getText());
+        datedateclass tempdate = datedata.deliver();
+
         if(UserName.length()== 0){
             Toast.makeText(this,"用户名null!",Toast.LENGTH_LONG).show();
         }
@@ -185,14 +236,14 @@ public class SignPage extends FragmentActivity implements View.OnClickListener{
         }
         else{
             SignRequest signRequest = new SignRequest();
-            flag = signRequest.Request(this,UserName,UserPass);
+            flag = signRequest.Request(this,UserName,UserPass,tempdate.getI(),tempdate.getI1(),tempdate.getI2());
 
             if(flag == 0){
                 //成功，存储用户类，跳回
                 Message msg = new Message();
                 Bundle bundle = new Bundle();
 
-                Player player = new Player(UserName,UserPass);
+                Player player = new Player(UserName,UserPass,tempdate.getI(),tempdate.getI1(),tempdate.getI2());
                 bundle.putParcelable("person",player);
 
                 msg.setData(bundle);
