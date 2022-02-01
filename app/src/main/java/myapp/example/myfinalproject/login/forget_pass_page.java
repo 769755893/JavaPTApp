@@ -1,17 +1,14 @@
 package myapp.example.myfinalproject.login;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,8 +20,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import Service.dao.Player;
-import myapp.example.myfinalproject.MainActivity;
 import myapp.example.myfinalproject.R;
+import myapp.example.myfinalproject.login.request.Forget_request;
 import util.ChangeBitmap;
 
 public class forget_pass_page extends FragmentActivity implements View.OnClickListener{

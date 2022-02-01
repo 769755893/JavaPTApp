@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import dbcurd.LoginDbHelper;
+import dbutil.LoginDbHelper;
 
 public class playerDao {
     LoginDbHelper dbhelper;

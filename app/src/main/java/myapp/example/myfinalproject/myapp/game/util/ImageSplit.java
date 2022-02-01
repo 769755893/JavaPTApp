@@ -1,4 +1,4 @@
-package myapp.example.myfinalproject.myapp.game.project;
+package myapp.example.myfinalproject.myapp.game.util;
 
 import android.graphics.Bitmap;
 import java.util.ArrayList;

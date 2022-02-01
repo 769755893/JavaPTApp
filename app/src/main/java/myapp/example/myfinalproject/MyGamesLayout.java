@@ -1,18 +1,14 @@
 package myapp.example.myfinalproject;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Handler;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -20,11 +16,9 @@ import android.widget.Toast;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.LogRecord;
 
-import myapp.example.myfinalproject.myapp.game.project.ImagePiece;
-import myapp.example.myfinalproject.myapp.game.project.ImageSplit;
+import myapp.example.myfinalproject.myapp.game.util.ImagePiece;
+import myapp.example.myfinalproject.myapp.game.util.ImageSplit;
 public class MyGamesLayout extends RelativeLayout implements View.OnClickListener {
 
     private ImageView MyEmptyImageView;

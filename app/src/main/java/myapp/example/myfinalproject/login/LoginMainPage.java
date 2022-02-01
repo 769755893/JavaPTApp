@@ -1,7 +1,6 @@
 package myapp.example.myfinalproject.login;
 
 import static java.lang.System.exit;
-import static java.lang.System.in;
 
 import android.app.Activity;
 import android.content.DialogInterface;
@@ -11,20 +10,14 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
-import android.text.TextWatcher;
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextClock;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -34,6 +27,7 @@ import androidx.appcompat.app.AlertDialog;
 import Service.dao.Player;
 import myapp.example.myfinalproject.MainActivity;
 import myapp.example.myfinalproject.R;
+import myapp.example.myfinalproject.login.request.LoginRequest;
 import util.ChangeBitmap;
 
 public class LoginMainPage extends Activity implements View.OnClickListener {

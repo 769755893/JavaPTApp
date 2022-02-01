@@ -1,4 +1,4 @@
-package dbcurd;
+package dbutil;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

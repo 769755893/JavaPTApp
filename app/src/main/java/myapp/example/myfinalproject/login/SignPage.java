@@ -1,6 +1,5 @@
 package myapp.example.myfinalproject.login;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -23,6 +22,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import Service.dao.Player;
 import myapp.example.myfinalproject.R;
+import myapp.example.myfinalproject.login.request.SignRequest;
 import util.ChangeBitmap;
 
 
@@ -170,6 +170,7 @@ public class SignPage extends FragmentActivity implements View.OnClickListener{
         });
     }
 
+    public int sign_fragment_press=-1;
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -193,6 +194,7 @@ public class SignPage extends FragmentActivity implements View.OnClickListener{
                 break;
             case R.id.srmb_btn:
                 //add fragment
+                sign_fragment_press=0;
                 if(isfragmentclose){
                     ADDFragment(dateSelectFragment);
                     isfragmentclose = false;
@@ -226,15 +228,17 @@ public class SignPage extends FragmentActivity implements View.OnClickListener{
         int flag=-1;
         UserName = String.valueOf(username.getText());
         UserPass = String.valueOf(userpass.getText());
-        datedateclass tempdate = datedata.deliver();
-
         if(UserName.length()== 0){
             Toast.makeText(this,"用户名null!",Toast.LENGTH_LONG).show();
         }
         else if(UserPass .length()==0){
             Toast.makeText(this,"密码null",Toast.LENGTH_LONG).show();
         }
+        else if(sign_fragment_press==-1){
+            Toast.makeText(this,"密保null",Toast.LENGTH_LONG).show();
+        }
         else{
+            datedateclass tempdate = datedata.deliver();
             SignRequest signRequest = new SignRequest();
             flag = signRequest.Request(this,UserName,UserPass,tempdate.getI(),tempdate.getI1(),tempdate.getI2());
 
