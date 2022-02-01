@@ -9,14 +9,18 @@ import dbcurd.LoginDbHelper;
 public class playerDao {
     LoginDbHelper dbhelper;
     public playerDao(Context context){
-        dbhelper = new LoginDbHelper(context,"player.db",null,1);
+        dbhelper = new LoginDbHelper(context,"userlogin.db",null,1);
     }
     public void add(String username, String password,int Year,int Month,int day){
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         db.execSQL(
                 "insert into " +
-                Player.TABLE_NAME+" ("+Player.KEY_USER_NAME+","+Player.KEY_USER_PASS+","+Player.KEY_USER_YEAR+","+Player.KEY_USER_MONTH+
-                        ","+Player.KEY_USER_DAY+") " +
+                Player.TABLE_NAME+" ("
+                        +Player.KEY_USER_NAME+","
+                        +Player.KEY_USER_PASS+","
+                        +Player.KEY_USER_YEAR+","
+                        +Player.KEY_USER_MONTH+","
+                        +Player.KEY_USER_DAY+") " +
                 "values("+username+","+password+","+Year+","+Month+","+day+");"
         );
         db.close();

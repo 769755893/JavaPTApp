@@ -47,8 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/forget_username"
             android:layout_centerHorizontal="true"
-            android:hint="输入您的生日密保"
             android:layout_marginTop="10dp"
+            android:hint="输入您的生日密保"
             android:textSize="18sp" />
 
         <TextView
@@ -66,26 +66,26 @@
             android:textSize="18sp"
             android:textStyle="italic" />
 
-        <Button
-            android:id="@+id/forget_search_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/forget_sr_tv"
-            android:layout_centerHorizontal="true"
-            android:text="查询" />
         <ImageButton
+            android:id="@+id/forget_imgesrbtn"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:id="@+id/forget_imgesrbtn"
-            android:layout_toRightOf="@+id/forget_sr_tv"
             android:layout_marginTop="255dp"
-            />
+            android:layout_toRightOf="@+id/forget_sr_tv" />
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/fragment_container_forget"
             android:layout_below="@+id/forget_sr_tv"
             android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/forget_search_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_container_forget"
+            android:layout_centerHorizontal="true"
+            android:text="查询" />
     </RelativeLayout>
     <LinearLayout
         android:layout_width="wrap_content"

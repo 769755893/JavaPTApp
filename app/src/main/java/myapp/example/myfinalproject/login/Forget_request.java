@@ -26,7 +26,12 @@ public class Forget_request {
     public void forget_call_back(SendPassword sendPassword){
         this.sendPassword = sendPassword;
     }
-    public Forget_request(Context context, String username, int y, int m, int d) {
+
+    public Forget_request(){
+
+    }
+
+    public void request(Context context, String username, int y, int m, int d) {
         playerDao playerdao = new playerDao(context);
 
         Player player = playerdao.getuser(username);

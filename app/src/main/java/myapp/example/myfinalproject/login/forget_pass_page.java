@@ -23,6 +23,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import Service.dao.Player;
+import myapp.example.myfinalproject.MainActivity;
 import myapp.example.myfinalproject.R;
 import util.ChangeBitmap;
 
@@ -32,6 +33,7 @@ public class forget_pass_page extends FragmentActivity implements View.OnClickLi
     ImageView forget_logo_iv;
     ImageButton forget_sr_btn;
     Button forget_search_btn;
+    TextView forgetsrtv;
 
     DateSelectFragment dateSelectFragment = new DateSelectFragment();
     @Override
@@ -50,7 +52,10 @@ public class forget_pass_page extends FragmentActivity implements View.OnClickLi
         forget_logo_iv = findViewById(R.id.forget_logo);
         forget_sr_btn = findViewById(R.id.forget_imgesrbtn);
         forget_search_btn = findViewById(R.id.forget_search_btn);
+        forgetsrtv = findViewById(R.id.forget_sr_tv);
+
         forget_sr_btn.setOnClickListener(this);
+        forget_search_btn.setOnClickListener(this);
 
         Bitmap forget_logo_bp,forget_sr_btn_bp;
         forget_logo_bp = BitmapFactory.decodeResource(getResources(),R.drawable.forget_logo);
@@ -110,6 +115,7 @@ public class forget_pass_page extends FragmentActivity implements View.OnClickLi
                 dateSelectFragment.FragmentCallbackInterface(new DateSelectFragment.FragmentInterface() {
                     @Override
                     public void sendData(int i, int i1, int i2) {
+                        forgetsrtv.setText(i+"年"+i1+"月"+i2+"日");
                         fmb = new forget_mb(i,i1,i2);
                     }
 
@@ -136,39 +142,45 @@ public class forget_pass_page extends FragmentActivity implements View.OnClickLi
         transaction.commit();
     }
 
-
-
-
+    Player tempplayer;
     private void search_check() {
         //1.发出request，当前用户存在？
         //2.当前输入的密保同数据库中相等？
-        Forget_request forget_request = new Forget_request(this,String.valueOf(username.getText()),fmb.i,fmb.i1,fmb.i2);
+        if(username.getText().length()==0||fmb==null){
+            Toast.makeText(this,"用户null or 密保null",Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        System.out.println("-----------------------------------------------------------111");
+
+        Forget_request forget_request = new Forget_request();
+        forget_request.forget_call_back(new Forget_request.SendPassword() {
+            @Override
+            public void sendplayer(Player player) {
+                tempplayer = player;
+            }
+        });//回调函数实现需要尽早实现，不然实现在使用之后则错了。
+
+        forget_request.request(this,String.valueOf(username.getText()),fmb.i,fmb.i1,fmb.i2);
         if(forget_request.getMsg()==-1){
             Toast.makeText(this,"用户不存在",Toast.LENGTH_LONG).show();
         }
         else if(forget_request.getMsg()==1){
-            Toast.makeText(this,"密保不正确！",Toast.LENGTH_LONG);
+            Toast.makeText(this,"密保不正确！",Toast.LENGTH_LONG).show();
         }
         else if(forget_request.getMsg()==0){
             //alterdialog 显示密码信息
 //            new AlertDialog.Builder(this)
-            final Player[] tempplayer = new Player[1];
-            forget_request.forget_call_back(new Forget_request.SendPassword() {
-                @Override
-                public void sendplayer(Player player) {
-                    tempplayer[0] = player;
-                }
-            });
+            System.out.println("-------------------------------------------------------Correct!");
              new AlertDialog.Builder(this)
                      .setIcon(R.drawable.correct)
-                     .setTitle("正确！")
-                     .setMessage("你的密码为："+ tempplayer[0].getUser_pass())
+                     .setTitle("正确！").setMessage("你的密码为："+ tempplayer.getUser_pass())
                      .setPositiveButton("确认", new DialogInterface.OnClickListener() {
                          @Override
                          public void onClick(DialogInterface dialogInterface, int i) {
 
                          }
-                     });
+                     }).show();
         }
     }
 }

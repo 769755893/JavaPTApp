@@ -11,9 +11,9 @@ public class Player implements Parcelable {
     public static final String KEY_ID = "Player_id";
     public static final String KEY_USER_NAME = "User_name";
     public static final String KEY_USER_PASS = "User_pass";
-    public static final String KEY_USER_YEAR = "year";
-    public static final String KEY_USER_MONTH = "month";
-    public static final String KEY_USER_DAY = "day";
+    public static final String KEY_USER_YEAR = "Year";
+    public static final String KEY_USER_MONTH = "Month";
+    public static final String KEY_USER_DAY = "Day";
     public String user_name;
     public String user_pass;
     public int year;
