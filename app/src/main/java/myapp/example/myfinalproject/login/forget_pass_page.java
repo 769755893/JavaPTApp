@@ -31,7 +31,7 @@ public class forget_pass_page extends FragmentActivity implements View.OnClickLi
     ChangeBitmap changeBitmap = new ChangeBitmap();
     EditText username;
     ImageView forget_logo_iv;
-    ImageButton forget_sr_btn;
+    ImageButton forget_sr_btn,forget_back_btn;
     Button forget_search_btn;
     TextView forgetsrtv;
 
@@ -53,18 +53,24 @@ public class forget_pass_page extends FragmentActivity implements View.OnClickLi
         forget_sr_btn = findViewById(R.id.forget_imgesrbtn);
         forget_search_btn = findViewById(R.id.forget_search_btn);
         forgetsrtv = findViewById(R.id.forget_sr_tv);
+        forget_back_btn = findViewById(R.id.forget_back_btn);
 
         forget_sr_btn.setOnClickListener(this);
         forget_search_btn.setOnClickListener(this);
+        forget_back_btn.setOnClickListener(this);
 
-        Bitmap forget_logo_bp,forget_sr_btn_bp;
+        Bitmap forget_logo_bp,forget_sr_btn_bp,forget_back_bp;
         forget_logo_bp = BitmapFactory.decodeResource(getResources(),R.drawable.forget_logo);
         forget_sr_btn_bp = BitmapFactory.decodeResource(getResources(),R.drawable.xlbox);
+        forget_back_bp = BitmapFactory.decodeResource(getResources(),R.drawable.back);
 
         forget_logo_bp = changeBitmap.changeBitmap(forget_logo_bp,100,100);
         forget_sr_btn_bp = changeBitmap.changeBitmap(forget_sr_btn_bp,100,100);
+        forget_back_bp = changeBitmap.changeBitmap(forget_back_bp,100,100);
+
         forget_logo_iv.setImageBitmap(forget_logo_bp);
         forget_sr_btn.setImageBitmap(forget_sr_btn_bp);
+        forget_back_btn.setImageBitmap(forget_back_bp);
     }
 
     class forget_mb{
@@ -124,6 +130,9 @@ public class forget_pass_page extends FragmentActivity implements View.OnClickLi
                         removeFragment(dateSelectFragment);
                     }
                 });
+                break;
+            case R.id.forget_back_btn:
+                finish();
                 break;
         }
     }

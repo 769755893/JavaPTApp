@@ -3,6 +3,7 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
     android:id="@+id/sign_page"
+    android:background="#fff0fcff"
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,6 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
+            android:format24Hour="HH:mm:ss"
             android:textColor="#ff000000"
             />
         <ImageButton
@@ -51,27 +53,32 @@
             android:layout_marginTop="5dp"
             android:id="@+id/sign_pass_logo"
             android:layout_below="@+id/sign_user_logo"/>
+
         <EditText
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:hint="用户名：10位以内数字"
             android:id="@+id/username_sign"
+            android:layout_width="400dp"
+            android:layout_height="45dp"
+            android:background="#ffffff"
             android:layout_toRightOf="@+id/sign_user_logo"
-            />
+            android:hint="用户名：10位以内数字" />
+
         <EditText
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:hint="密码：10位以内数字"
             android:id="@+id/userpass_sign"
+            android:layout_width="400dp"
+            android:layout_height="45dp"
             android:layout_below="@+id/username_sign"
-            android:layout_toRightOf="@+id/sign_pass_logo"
             android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/sign_pass_logo"
+            android:hint="密码：10位以内数字"
+            android:background="#ffffff"
+
             />
+
         <Button
             android:id="@+id/sign_eye_btn"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:layout_marginLeft="350dp"
+            android:layout_marginLeft="320dp"
             android:layout_marginTop="45dp"
             android:background="@drawable/eye_invisble_selector" />
 
@@ -83,6 +90,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
             android:layout_toRightOf="@+id/sign_pass_logo"
+
+            android:background="#ffffff"
             android:orientation="horizontal">
 
             <TextView
@@ -90,7 +99,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:background="#ffffff"
                 android:gravity="center"
+
                 android:hint="密保:  您的生日"
                 android:textAlignment="center"
                 android:textSize="20dp" />
@@ -99,7 +110,7 @@
                 android:id="@+id/srmb_btn"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginLeft="166dp" />
+                android:layout_marginLeft="140dp" />
         </LinearLayout>
         <FrameLayout
             android:layout_width="wrap_content"

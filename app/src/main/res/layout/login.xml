@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:textColor="#ff000000"
+            android:format24Hour="HH:mm:ss"
             android:textSize="15sp" />
 
         <ImageButton
@@ -59,7 +60,7 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_below="@+id/user_logo"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 android:background="#00000000"
                 android:gravity="center" />
 
@@ -79,14 +80,14 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:background="#ffffff"
-                android:inputType="textVisiblePassword"
-                android:hint="请输入密码" />
+                android:hint="请输入密码"
+                android:inputType="textVisiblePassword" />
 
             <Button
                 android:id="@+id/eye_login_btn"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginLeft="300dp"
+                android:layout_marginLeft="285dp"
                 android:layout_marginTop="45dp"
                 android:background="@drawable/eye_invisble_selector" />
         </RelativeLayout>

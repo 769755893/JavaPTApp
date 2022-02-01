@@ -2,9 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:id="@+id/forget_root"
+    android:background="#fff0fcff"
     >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff44cef6"
+        >
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/imagebtn_selector2"
+            android:id="@+id/forget_back_btn"/>
+        <TextClock
+            android:layout_centerInParent="true"
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:format24Hour="HH:mm:ss"
+            android:textColor="#ff000000"
+            />
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,13 +40,13 @@
             />
 
         <EditText
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
             android:id="@+id/forget_username"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
             android:layout_below="@+id/forget_logo"
+            android:background="#ffffffff"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            />
+            android:layout_marginTop="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -44,10 +66,11 @@
         <TextView
             android:id="@+id/forget_sr_tv"
             android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:layout_below="@+id/forget_username"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
+            android:background="#ffffffff"
             android:hint="输入您的生日密保"
             android:textSize="18sp" />
 
@@ -70,8 +93,10 @@
             android:id="@+id/forget_imgesrbtn"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:layout_marginTop="255dp"
+            android:layout_marginLeft="-50dp"
+            android:layout_marginTop="270dp"
             android:layout_toRightOf="@+id/forget_sr_tv" />
+
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,6 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/fragment_container_forget"
+            android:layout_marginTop="75dp"
             android:layout_centerHorizontal="true"
             android:text="查询" />
     </RelativeLayout>
