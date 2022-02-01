@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import static myapp.example.myfinalproject.MyGamesLayout.TIME_CHANGED;
 
+import Service.dao.Player;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private MyGamesLayout myGamesLayout;
@@ -20,16 +22,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView mTime;
     public Button button1, button2, button3, button4;
     public Button stbutton1, stbutton2;
+    private Player deliverPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        deliverPlayer = getIntent().getParcelableExtra("person");
 
         stbutton1 = (Button) findViewById(R.id.startgame);
         stbutton1.setOnClickListener(this);
 
         stbutton2 = (Button) findViewById(R.id.exitgame);
         stbutton2.setOnClickListener(this);
+
     }
 
     @Override
