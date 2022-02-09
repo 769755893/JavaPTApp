@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/forget_root"
+    android:background="#fff0fcff"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff44cef6"
+        >
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/imagebtn_selector2"
+            android:id="@+id/forget_back_btn"/>
+        <TextClock
+            android:layout_centerInParent="true"
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:format24Hour="HH:mm:ss"
+            android:textColor="#ff000000"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/forget_logo"
+            />
+
+        <EditText
+            android:id="@+id/forget_username"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/forget_logo"
+            android:background="#ffffffff"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/forget_logo"
+            android:layout_marginTop="22dp"
+            android:layout_marginRight="14dp"
+            android:layout_toLeftOf="@+id/forget_username"
+            android:shadowColor="@color/red"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="3.0"
+            android:text="用户"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/forget_sr_tv"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/forget_username"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="#ffffffff"
+            android:hint="输入您的生日密保"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/forget_username"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="14dp"
+            android:layout_toLeftOf="@+id/forget_sr_tv"
+            android:shadowColor="@color/red"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="3.0"
+            android:text="生日"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+
+        <ImageButton
+            android:id="@+id/forget_imgesrbtn"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="-50dp"
+            android:layout_marginTop="270dp"
+            android:layout_toRightOf="@+id/forget_sr_tv" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragment_container_forget"
+            android:layout_below="@+id/forget_sr_tv"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/forget_search_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_container_forget"
+            android:layout_marginTop="75dp"
+            android:layout_centerHorizontal="true"
+            android:text="查询" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/forget_container"
+        android:orientation="vertical"
+        >
+    </LinearLayout>
+</LinearLayout>

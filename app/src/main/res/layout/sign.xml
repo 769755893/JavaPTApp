@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+    android:id="@+id/sign_page"
+    android:background="#fff0fcff"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff44cef6"
+        >
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/imagebtn_selector2"
+            android:id="@+id/sign_back_btn"/>
+        <TextClock
+            android:layout_centerInParent="true"
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:format24Hour="HH:mm:ss"
+            android:textColor="#ff000000"
+            />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/imagebtn_selector2"
+            android:cropToPadding="true"
+            android:id="@+id/gy_button"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:id="@+id/sign_center_logo"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="35dp">
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/sign_user_logo"/>
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/sign_pass_logo"
+            android:layout_below="@+id/sign_user_logo"/>
+
+        <EditText
+            android:id="@+id/username_sign"
+            android:layout_width="400dp"
+            android:layout_height="45dp"
+            android:background="#ffffff"
+            android:layout_toRightOf="@+id/sign_user_logo"
+            android:hint="用户名：10位以内数字" />
+
+        <EditText
+            android:id="@+id/userpass_sign"
+            android:layout_width="400dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/username_sign"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/sign_pass_logo"
+            android:hint="密码：10位以内数字"
+            android:background="#ffffff"
+
+            />
+
+        <Button
+            android:id="@+id/sign_eye_btn"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="320dp"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/eye_invisble_selector" />
+
+        <LinearLayout
+            android:id="@+id/srxzsj"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userpass_sign"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/sign_pass_logo"
+
+            android:background="#ffffff"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/srmb_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#ffffff"
+                android:gravity="center"
+
+                android:hint="密保:  您的生日"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+            <ImageButton
+                android:id="@+id/srmb_btn"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="140dp" />
+        </LinearLayout>
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragment_container"
+            android:layout_below="@+id/srxzsj"
+            />
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/mb_logo"
+            android:layout_marginTop="100dp"
+            />
+    </RelativeLayout>
+
+    <ImageButton
+        android:layout_marginTop="20dp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/zc_btn"
+        android:layout_gravity="center"
+        />
+</LinearLayout>
