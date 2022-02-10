@@ -3,7 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/DESK/PINTUAPP/app/src/main/res/drawable/gamepageselector.xml" value="0.167" />
+        <entry key="..\:/DESK/PINTUAPP/app/src/main/res/drawable/imagebtn_selector.xml" value="0.167" />
+        <entry key="..\:/DESK/PINTUAPP/app/src/main/res/drawable/imagebtn_selector2.xml" value="0.167" />
+        <entry key="..\:/DESK/PINTUAPP/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/DESK/PINTUAPP/app/src/main/res/layout/fragment_date_select.xml" value="0.264" />
+        <entry key="..\:/DESK/PINTUAPP/app/src/main/res/layout/fragment_game.xml" value="0.1578125" />
+        <entry key="..\:/DESK/PINTUAPP/app/src/main/res/layout/startlayout.xml" value="0.1578125" />
       </map>
     </option>
   </component>

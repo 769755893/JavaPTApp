@@ -2,6 +2,8 @@ package myapp.example.MapperService;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -12,117 +14,64 @@ import android.widget.TextView;
 
 import static myapp.example.MapperService.Gamming.MyGamesLayout.TIME_CHANGED;
 
+import java.util.ArrayList;
+
 import Service.dao.Player;
 import myapp.example.MapperService.Gamming.MyGamesLayout;
+import myapp.example.MapperService.ViewFragment.GameFragment;
+import myapp.example.MapperService.ViewFragment.ProfilesFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private MyGamesLayout myGamesLayout;
-    private TextView mLevel;
-    private TextView mTime;
-    public Button button1, button2, button3, button4;
     public Button stbutton1, stbutton2;
     private Player deliverPlayer;
+    ViewPager2 viewPager2;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         deliverPlayer = getIntent().getParcelableExtra("person");
+        initPager();
+    }
 
-        stbutton1 = (Button) findViewById(R.id.startgame);
-        stbutton1.setOnClickListener(this);
+    private void initPager() {
+        viewPager2 = findViewById(R.id.ViewPage_container);//初始化
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments.add(GameFragment.newInstance("GamePage"));
+        fragments.add(ProfilesFragment.newInstance("Profiles"));
 
-        stbutton2 = (Button) findViewById(R.id.exitgame);
-        stbutton2.setOnClickListener(this);
+        MyFragmentPagerAdapter pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(),
+                getLifecycle(),fragments);
+        //getLifeCycle 是JetPack控件。
 
+        //如今的app开发中，由mv  vm 开发方式。不论是生命周期管理，还是控件管理，都大量的运用Jetpack控件，需要掌握。
+        viewPager2.setAdapter(pagerAdapter);
+
+        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+//                changeTab(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                super.onPageScrollStateChanged(state);
+            }
+        });
     }
 
     @Override
     public void onClick(View v) {
-        if (v == stbutton1) {
-            LayoutInflater inflater = LayoutInflater.from(this);
-            View view = inflater.inflate(R.layout.startlayout, null);
-            setContentView(view);
 
-            button1 = (Button) findViewById(R.id.StartBtn);
-            button1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (myGamesLayout.isPause) {
-                        myGamesLayout.isPause = false;
-                        myGamesLayout.mHandler.sendEmptyMessage(TIME_CHANGED);
-                    }
-                }
-            });
-            button2 = (Button) findViewById(R.id.PauseBtn);
-            button2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    myGamesLayout.isPause=true;
-                    myGamesLayout.mHandler.removeMessages(TIME_CHANGED);
-                }
-            });
-            button3 = (Button) findViewById(R.id.ReStartBtn);
-            button3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                 myGamesLayout.mHandler.removeMessages(TIME_CHANGED);//移除上一级Handler的信息，防止时间变快。
-                 myGamesLayout.restart();
-                }
-            });
-            button4 = (Button) findViewById(R.id.ExitBtn);
-            button4.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                 finish();
-                }
-            });
-
-            mTime = (TextView) findViewById(R.id.id_time);
-            mLevel = (TextView) findViewById(R.id.id_level);
-
-            myGamesLayout = (MyGamesLayout) findViewById(R.id.pintu);
-            myGamesLayout.setTimeEnabled(true);
-            myGamesLayout.setmListener(new MyGamesLayout.GamePintuListener() {
-                @Override
-                public void nextLevel(final int nextLevel) {
-                    new AlertDialog.Builder(MainActivity.this)
-                            .setTitle("Game Information").setMessage("Level UP!")
-                            .setPositiveButton("Next Level!", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    myGamesLayout.nextLevel();
-                                    mLevel.setText("Level:" + nextLevel);
-                                }
-                            }).show();
-                }
-
-                @Override
-                public void timechanged(int currentTime) {
-                    mTime.setText("" + currentTime);//空""作用为转字符串，防报错。
-                }
-
-                @Override
-                public void gameover() {
-                    new AlertDialog.Builder(MainActivity.this)
-                            .setTitle("Game Information").setMessage("Game over!")
-                            .setPositiveButton("ReStart", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    myGamesLayout.restart();
-                                }
-                            }).setNegativeButton("Quit", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                        }
-                    }).show();
-                }
-            });
-        }
-        if (v == stbutton2) {
-            finish();
-        }
     }
 }
